@@ -6,12 +6,27 @@ Specifically,
 - Collect metrics
 '''
 
+from cache import Cache
+from content import *
+from content_table import ContentTable
+
 class Simulator:
-    def __init__(self, scenario, parameters, n_contents) -> None:
+    def __init__(self, scenario, parameters, n_contents: int) -> None:
+        self.scenario = scenario
+        self.parameters = parameters
+        self.n_contents = n_contents
+
+        contentTable = ContentTable()
+        for i in range(n_contents):
+            contentTable.add(Content(i, contentSizePolicy(i)), 0.0, 0.0, 0, 0)
+        self.cache = Cache(contentTable, parameters)
         pass
 
     def execute(self):
-        pass
+        for r, t in self.scenario:
+            self.cache.query(r, t)
 
     def score(self):
-        return 1
+        h = self.cache.metric["hit"]
+        m = self.cache.metric["miss"]
+        return h / (h+m)

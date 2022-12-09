@@ -16,6 +16,9 @@ class Memory:
         return c in self.container
 
     def __len__(self) -> int:
+        s = [c.size for c in self.container]
+        if len(s) == 0:
+            return 0
         return sum([c.size for c in self.container])
 
     def can_add(self, size) -> bool:

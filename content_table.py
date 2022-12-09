@@ -13,3 +13,8 @@ class ContentTable:
 
     def __getitem__(self, c: Content):
         return self.table[c]
+
+    def get_content(self, idx: int):
+        for k in self.table.keys():
+            if k.index == idx:
+                return k

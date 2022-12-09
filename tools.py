@@ -1,6 +1,6 @@
 import numpy as np
 
-# Zipf distribution -> [0, mod) : frequency of access: 1 > 2 > 3 > ... > mod > 0
+# Zipf distribution -> [0, mod) : frequency of access: 1 > 2 > 3 > ... > mod-1 > 0
 def zipf(alpha, mod, size) -> list:
     return np.random.zipf(alpha, size) % mod
 

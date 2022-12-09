@@ -10,3 +10,6 @@ class Content:
 
     def __hash__(self):
         return self.index
+
+def contentSizePolicy(i):
+    return 10 + (i//100) 
