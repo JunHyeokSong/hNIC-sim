@@ -1,7 +1,5 @@
 # hNIC-sim
 
-!! Not completed yet
-
 ## Requirements
 
 - python version >= 3.9
